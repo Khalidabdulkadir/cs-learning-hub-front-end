@@ -7,7 +7,7 @@ const CodeSnippetsInfo = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
 
   useEffect(() => {
-    const handleResize = () => {
+    const handleResize = () => {g
       setIsMobile(window.innerWidth < 992);
     };
 

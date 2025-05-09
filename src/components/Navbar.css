@@ -1,0 +1,5 @@
+.hover-glow:hover {
+  background-color: rgba(13, 202, 240, 0.1);
+  color: #0dcaf0;
+  transition: all 0.2s ease-in-out;
+}
