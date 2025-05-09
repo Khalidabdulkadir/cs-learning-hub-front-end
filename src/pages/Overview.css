@@ -1,0 +1,36 @@
+
+
+@media screen and (max-width: 768px) {
+  .overview-container {
+    padding: 0 20px;
+  }
+
+  .overview-header {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .overview-content {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+    
+}
+
+/* mobile screen */
+@media screen and (max-width: 480px) {
+  .overview-container {
+    padding: 0 10px;
+  }
+
+  .overview-header {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+
+  .overview-content {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+    
+}

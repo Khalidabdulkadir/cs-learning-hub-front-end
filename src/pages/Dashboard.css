@@ -1,0 +1,9 @@
+
+    justify-content: center;
+  }
+  
+  .form-control,
+  .form-select {
+    min-height: 44px;
+  }
+}

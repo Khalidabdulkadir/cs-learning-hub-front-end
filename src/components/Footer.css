@@ -1,0 +1,23 @@
+.footer {
+  margin-top: auto;
+  background-color: #1a1a1a;
+  padding: 2rem 0;
+}
+
+.social-links a {
+  font-size: 1.25rem;
+  transition: color 0.2s ease;
+}
+
+.social-links a:hover {
+  color: #007bff !important;
+}
+
+.footer-nav a {
+  transition: color 0.2s ease;
+}
+
+.footer-nav a:hover {
+  color: #007bff !important;
+  text-decoration: none;
+}

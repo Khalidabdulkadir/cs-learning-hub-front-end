@@ -1,0 +1,28 @@
+{
+  "topics": [
+    {
+      "id": 1,
+      "title": "Machine Learning Fundamentals",
+      "content": "Learn about basic ML concepts, algorithms, and their applications in real-world scenarios.",
+      "link": "https://www.coursera.org/learn/machine-learning"
+    },
+    {
+      "id": 2,
+      "title": "Cybersecurity Essentials",
+      "content": "Understand core concepts of cybersecurity, common threats, and protection mechanisms.",
+      "link": "https://www.cisco.com/c/en/us/training-events/training-certifications/certifications/entry/security.html"
+    },
+    {
+      "id": 3,
+      "title": "Software Engineering Best Practices",
+      "content": "Explore software development methodologies, design patterns, and coding standards.",
+      "link": "https://www.coursera.org/specializations/software-engineering"
+    },
+    {
+      "id": 4,
+      "title": "Artificial Intelligence",
+      "content": "Discover AI concepts, neural networks, and deep learning applications.",
+      "link": "https://www.edx.org/course/artificial-intelligence-ai"
+    }
+  ]
+}

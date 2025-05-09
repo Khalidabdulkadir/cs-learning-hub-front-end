@@ -1,0 +1,109 @@
+/* App Container */
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-content {
+  flex: 1;
+  background-color: #f8f9fa;
+}
+
+/* Dashboard Layout */
+.dashboard-container {
+  min-height: calc(100vh - 56px); /* Subtract navbar height */
+  display: flex;
+}
+
+.dashboard-content {
+  flex: 1;
+  margin-left: 280px;
+  min-height: 100%;
+  background: #f8f9fa;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 280px;
+  background: linear-gradient(180deg, #2c3e50 0%, #1a252f 100%);
+  color: white;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+/* Desktop Layout */
+@media (min-width: 992px) {
+  .dashboard-content {
+    margin-left: 0;
+  }
+
+  .sidebar {
+    transform: translateX(-100%);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 991.98px) {
+  .dashboard-container {
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  .dashboard-content {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .sidebar {
+    position: fixed;
+    transform: translateX(-100%);
+    z-index: 1050;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .dashboard-body {
+    padding: 1.5rem;
+  }
+
+  /* Improve touch targets */
+  .btn,
+  .nav-link,
+  .form-control {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Improve card layouts */
+  .card {
+    margin-bottom: 1rem;
+  }
+
+  /* Better spacing for mobile */
+  .container-fluid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .row {
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+  }
+
+  .col, [class*='col-'] {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}

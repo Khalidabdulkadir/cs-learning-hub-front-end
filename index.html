@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Learning Hub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+      :root {
+        --sidebar-width: 280px;
+      }
+
+      body {
+        background-color: #f8f9fa;
+        overflow-x: hidden;
+      }
+      
+      .hover-card {
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      
+      .hover-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+      }
+
+      /* Dashboard Layout */
+      .dashboard-container {
+        min-height: 100vh;
+        display: flex;
+      }
+
+      .sidebar {
+        width: var(--sidebar-width);
+        height: 100vh;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 1030;
+        transition: transform 0.3s ease;
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+      }
+
+      .hero-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-section::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: url('https://raw.githubusercontent.com/microsoft/vscode-codicons/main/src/icons/symbol-class.svg') repeat;
+        opacity: 0.1;
+        animation: moveBackground 20s linear infinite;
+      }
+
+      @keyframes moveBackground {
+        from { transform: translateX(0) translateY(0); }
+        to { transform: translateX(-100%) translateY(-100%); }
+      }
+
+      .feature-card {
+        border: none;
+        border-radius: 16px;
+        transition: all 0.3s ease;
+        background: white;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
+      }
+
+      .feature-icon {
+        width: 64px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 16px;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(135deg, rgba(13, 110, 253, 0.1) 0%, rgba(13, 110, 253, 0.2) 100%);
+      }
+
+      .stats-card {
+        padding: 2rem;
+        border-radius: 16px;
+        background: white;
+        box-shadow: 0 0.5rem 1rem rgba(0,0,0,.08);
+        transition: all 0.3s ease;
+      }
+
+      .stats-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 1rem 2rem rgba(0,0,0,.12);
+      }
+
+      .testimonial-section {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 5rem 0;
+      }
+
+      .testimonial-card {
+        background: white;
+        border-radius: 16px;
+        padding: 2rem;
+        margin: 1rem;
+        box-shadow: 0 0.5rem 1rem rgba(0,0,0,.08);
+      }
+
+      .testimonial-avatar {
+        width: 64px;
+        height: 64px;
+        border-radius: 32px;
+        margin-bottom: 1rem;
+      }
+
+      .cta-section {
+        background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+        padding: 5rem 0;
+        margin-top: 5rem;
+        text-align: center;
+        color: white;
+      }
+
+      .sidebar:not(.open) {
+        transform: translateX(-100%);
+      }
+
+      @media (min-width: 992px) {
+        .sidebar {
+          transform: none !important;
+        }
+      }
+
+      .dashboard-content {
+        flex: 1;
+        margin-left: 0;
+        transition: margin-left 0.3s ease;
+        min-width: 0;
+      }
+
+      .dashboard-content.sidebar-open {
+        margin-left: var(--sidebar-width);
+      }
+
+      .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1025;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+
+      .sidebar-overlay.show {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .hover-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      /* Code block styling */
+      .code-block {
+        border-radius: .375rem;
+        position: relative;
+      }
+
+      .copy-button {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        z-index: 1;
+      }
+
+      .badge {
+        transition: all 0.2s;
+      }
+
+      .badge:hover {
+        transform: scale(1.1);
+      }
+
+      /* Hero Section Animation */
+      .hero-content {
+        animation: fadeInUp 0.5s ease-out;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 991.98px) {
+        .dashboard-content.sidebar-open {
+          margin-left: 0;
+        }
+
+        .sidebar {
+          width: 100%;
+          max-width: 280px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

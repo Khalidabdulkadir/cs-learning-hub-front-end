@@ -1,0 +1,25 @@
+{
+  "snippets": [
+    {
+      "id": 1,
+      "title": "Django User Authentication",
+      "description": "Basic user authentication setup in Django with login and registration",
+      "language": "python",
+      "code": "from django.contrib.auth import authenticate, login\nfrom django.shortcuts import render, redirect\n\ndef login_view(request):\n    if request.method == 'POST':\n        username = request.POST['username']\n        password = request.POST['password']\n        user = authenticate(request, username=username, password=password)\n        if user is not None:\n            login(request, user)\n            return redirect('home')\n    return render(request, 'login.html')"
+    },
+    {
+      "id": 2,
+      "title": "React useState Hook",
+      "description": "Example of using React's useState hook for state management",
+      "language": "javascript",
+      "code": "import React, { useState } from 'react';\n\nfunction Counter() {\n  const [count, setCount] = useState(0);\n\n  return (\n    <div>\n      <p>Count: {count}</p>\n      <button onClick={() => setCount(count + 1)}>\n        Increment\n      </button>\n    </div>\n  );\n}"
+    },
+    {
+      "id": 3,
+      "title": "Python Quick Sort",
+      "description": "Implementation of Quick Sort algorithm in Python",
+      "language": "python",
+      "code": "def quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)"
+    }
+  ]
+}

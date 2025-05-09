@@ -1,0 +1,32 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "name": "FreeCodeCamp",
+      "description": "Learn to code with free interactive tutorials and projects",
+      "githubUrl": "https://github.com/freeCodeCamp/freeCodeCamp",
+      "tags": ["Web Development", "JavaScript", "Python", "Full Stack"]
+    },
+    {
+      "id": 2,
+      "name": "TensorFlow",
+      "description": "Open-source machine learning library for research and production",
+      "githubUrl": "https://github.com/tensorflow/tensorflow",
+      "tags": ["Machine Learning", "Python", "C++", "AI"]
+    },
+    {
+      "id": 3,
+      "name": "The Algorithms",
+      "description": "Collection of various algorithms implemented in multiple programming languages",
+      "githubUrl": "https://github.com/TheAlgorithms",
+      "tags": ["Algorithms", "Data Structures", "Multiple Languages"]
+    },
+    {
+      "id": 4,
+      "name": "React Learning Lab",
+      "description": "Interactive tutorials and exercises for learning React.js",
+      "githubUrl": "https://github.com/reactjs/react-tutorial",
+      "tags": ["React", "JavaScript", "Web Development"]
+    }
+  ]
+}
