@@ -1,13 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
 import { FaDatabase, FaLock, FaClipboard, FaBolt } from "react-icons/fa";
 import Sidebar from "./Sidebar";
 
 const CodeSnippetsInfo = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 992);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <div className="dashboard-container d-flex">
-      <Sidebar isOpen={sidebarOpen} toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
+      {!isMobile && <Sidebar isOpen={sidebarOpen} toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />}
       <div className={`dashboard-content flex-grow-1 ${sidebarOpen ? 'sidebar-open' : ''}`}>
         <div className="dashboard-header bg-white border-bottom sticky-top">
           <div className="d-flex align-items-center p-3">

@@ -17,8 +17,18 @@ const Overview = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [totalProjects, setTotalProjects] = useState(0);
   const [totalSnippets, setTotalSnippets] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
   const totalTopics = 58;
+
+  // Update isMobile state on window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 992);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Check for mobile view on mount and resize
   useEffect(() => {
@@ -88,9 +98,8 @@ const Overview = () => {
 
   return (
     <>
-    
-      <Sidebar isOpen={sidebarOpen} toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
-    <div className="dashboard-container d-flex">
+      {!isMobile && <Sidebar isOpen={sidebarOpen} toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />}
+      <div className="dashboard-container d-flex">
 
       <div className={`dashboard-content flex-grow-1 ${sidebarOpen ? 'sidebar-open' : ''}`}>
         <div className="dashboard-header bg-white border-bottom sticky-top">
